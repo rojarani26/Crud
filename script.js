@@ -26,6 +26,21 @@ axios.post("https://crudcrud.com/api/21043332b1f14194ae17ecb20f0fe6c1/appointmen
     console.log(err)
 })
 
+window.addEventListener("DOMContentLoaded", () => {
+    axios.get("https://crudcrud.com/api/21043332b1f14194ae17ecb20f0fe6c1/appointmentData")
+    .then((response) => {
+        console.log(response)
+
+        for(var i=0;i<response.data.length;i++){
+            showUsersOnScreen(response.data[i])
+        }
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+    console.log(data)
+})
+
 function showUsersOnScreen(obj){
     const parentElem = document.getElementById('listOfItems')
     const childElem = document.createElement('li');
